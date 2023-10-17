@@ -35,6 +35,19 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
     super.dispose();
   }
 
+  changePlayback() {
+    setState(() {
+      tongle = !tongle;
+      // If the video is playing, pause it.
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        // If the video is paused, play it.
+        _controller.play();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     _controller.value.isPlaying ? Icons.pause : Icons.play_arrow;
@@ -59,128 +72,126 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(23)),
-                  clipBehavior: Clip.antiAlias,
-                  child: FutureBuilder(
-                    future: _initializeVideoPlayerFuture,
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        return AspectRatio(
-                          aspectRatio: _controller.value.aspectRatio,
-                          child: VideoPlayer(_controller),
-                        );
-                      } else {
-                        return CircularProgressIndicator();
-                      }
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      changePlayback();
                     },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(23)),
+                      clipBehavior: Clip.antiAlias,
+                      child: FutureBuilder(
+                        future: _initializeVideoPlayerFuture,
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return AspectRatio(
+                              aspectRatio: _controller.value.aspectRatio,
+                              child: VideoPlayer(_controller),
+                            );
+                          } else {
+                            return CircularProgressIndicator();
+                          }
+                        },
+                      ),
+                    ),
                   ),
-                ),
-                Positioned(
-                  top: 140,
-                  left: 250,
-                  child: Container(
+                  Container(
                     width: 50,
                     height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.white),
+                        color: tongle ? Colors.white : Colors.transparent),
                     child: IconButton(
                       onPressed: () {
-                        setState(() {
-                          tongle = !tongle;
-                          // If the video is playing, pause it.
-                          if (_controller.value.isPlaying) {
-                            _controller.pause();
-                          } else {
-                            // If the video is paused, play it.
-                            _controller.play();
-                          }
-                        });
+                        changePlayback();
                       },
-                      icon: Icon(
-                        tongle ? Icons.play_arrow : Icons.pause,
-                        color: Color(0xff7047EB),
-                      ),
+                      icon: tongle
+                          ? Icon(
+                              Icons.play_arrow,
+                              color: Color(0xff7047EB),
+                            )
+                          : SizedBox.shrink(),
                     ),
+                  )
+                ],
+              ),
+              SizedBox(height: 11),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Deep Amrap Burnet",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
                   ),
-                )
-              ],
-            ),
-            SizedBox(height: 11),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Deep Amrap Burnet",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-                ),
-                icon_done("125kcl", "120min")
-              ],
-            ),
-            SizedBox(height: 24),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ReviewScreen()));
-              },
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 11, top: 11, right: 11, bottom: 11),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Review",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w700),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 16,
-                      )
-                    ],
+                  icon_done("125kcl", "120min")
+                ],
+              ),
+              SizedBox(height: 24),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => ReviewScreen()));
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 11, top: 11, right: 11, bottom: 11),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Review",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 35),
-            Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Recommeded",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-                )),
-            SizedBox(height: 20),
-            recommended("Deep Butt Sculp",
-                AssetImage("assets/images/Rectangle 129.png")),
-            SizedBox(height: 14),
-            recommended("Lower Body Amrap",
-                AssetImage("assets/images/Rectangle 126.png")),
-            SizedBox(height: 14),
-            recommended(
-              "Flat Abs Barrer",
-              AssetImage("assets/images/Rectangle 121.png"),
-            ),
-            SizedBox(height: 14),
-            recommended("Flat Abs Barrer",
-                AssetImage("assets/images/Rectangle 121.png")),
-            SizedBox(height: 14),
-            recommended("Deep Butt Sculp",
-                AssetImage("assets/images/Rectangle 129.png")),
-            SizedBox(height: 14),
-          ],
+              SizedBox(height: 35),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Recommeded",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                  )),
+              SizedBox(height: 20),
+              recommended("Deep Butt Sculp",
+                  AssetImage("assets/images/Rectangle 129.png")),
+              SizedBox(height: 14),
+              recommended("Lower Body Amrap",
+                  AssetImage("assets/images/Rectangle 126.png")),
+              SizedBox(height: 14),
+              recommended(
+                "Flat Abs Barrer",
+                AssetImage("assets/images/Rectangle 121.png"),
+              ),
+              SizedBox(height: 14),
+              recommended("Flat Abs Barrer",
+                  AssetImage("assets/images/Rectangle 121.png")),
+              SizedBox(height: 14),
+              recommended("Deep Butt Sculp",
+                  AssetImage("assets/images/Rectangle 129.png")),
+              SizedBox(height: 14),
+            ],
+          ),
         ),
       ),
     );

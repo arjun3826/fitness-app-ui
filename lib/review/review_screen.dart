@@ -1,4 +1,4 @@
-import 'package:fitness/screen/training/traning_details.dart';
+import 'package:fitness/review/review_detailes.dart';
 import 'package:flutter/material.dart';
 
 class ReviewScreen extends StatelessWidget {
@@ -7,13 +7,13 @@ class ReviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF2F6F9),
+      backgroundColor: const Color(0xffF2F6F9),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         bottomOpacity: 0.0,
         elevation: 0.0,
-        title: Text(
+        title: const Text(
           "Review",
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),
@@ -25,14 +25,20 @@ class ReviewScreen extends StatelessWidget {
           )
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 36),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 36),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("4.6"),
+                Text(
+                  "4.6",
+                  style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xff7047EB)),
+                ),
                 Column(
                   children: [
                     Ratings(
@@ -58,7 +64,37 @@ class ReviewScreen extends StatelessWidget {
                   ],
                 )
               ],
-            )
+            ),
+            const SizedBox(height: 10),
+            const Align(
+              alignment: Alignment.topRight,
+              child: Text(
+                "174 Ratings",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+            ),
+            const SizedBox(height: 40),
+            const Reviews(),
+            const Reviews(),
+            const Reviews(),
+            const Reviews(),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 47,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ))),
+                onPressed: () {},
+                child: const Text(
+                  "Write a Review",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -79,9 +115,9 @@ class Ratings extends StatelessWidget {
           children: [
             Text(
               text,
-              style: TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 10),
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Stack(
               children: [
                 Container(
@@ -89,14 +125,14 @@ class Ratings extends StatelessWidget {
                   height: 8,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      color: Color.fromARGB(48, 137, 152, 172)),
+                      color: const Color.fromARGB(48, 137, 152, 172)),
                 ),
                 Container(
                   height: 8,
                   width: width,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    color: Color(0xff7047EB),
+                    color: const Color(0xff7047EB),
                   ),
                 )
               ],

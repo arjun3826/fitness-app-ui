@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class SettingWigets extends StatelessWidget {
   final IconData icon;
   final String text;
-  const SettingWigets({super.key, required this.icon, required this.text});
+
+  const SettingWigets({
+    super.key,
+    required this.icon,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {

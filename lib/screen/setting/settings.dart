@@ -81,7 +81,10 @@ class _SettingScreenState extends State<SettingScreen> {
             ],
           ),
           SizedBox(height: 25),
-          SettingWigets(icon: Icons.home, text: "Home"),
+          SettingWigets(
+            icon: Icons.home,
+            text: "Home",
+          ),
           SettingWigets(icon: Icons.watch_later_rounded, text: "Training"),
           SettingWigets(icon: Icons.bar_chart, text: "Report"),
           DarkMode(),
