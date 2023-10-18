@@ -1,8 +1,7 @@
-import 'package:fitness/notification/notification.dart';
 import 'package:flutter/material.dart';
 
-class Notification_home extends StatelessWidget {
-  const Notification_home({super.key});
+class NotificationHome extends StatelessWidget {
+  const NotificationHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +24,11 @@ class Notification_home extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(
+                const Text(
                   "Today",
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 Container(
@@ -39,19 +38,19 @@ class Notification_home extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 25),
-            Notification(),
-            Notification(),
-            Notification(),
-            Notification(),
-            SizedBox(height: 16),
+            const SizedBox(height: 25),
+            const Notification(),
+            const Notification(),
+            const Notification(),
+            const Notification(),
+            const SizedBox(height: 16),
             Row(
               children: [
-                Text(
+                const Text(
                   "Yesterday",
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 Container(
@@ -61,11 +60,11 @@ class Notification_home extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 25),
-            Notification(),
-            Notification(),
-            Notification(),
-            Notification(),
+            const SizedBox(height: 25),
+            const Notification(),
+            const Notification(),
+            const Notification(),
+            const Notification(),
           ],
         ),
       ),
@@ -73,43 +72,49 @@ class Notification_home extends StatelessWidget {
   }
 }
 
-Notification() {
-  return Column(
-    children: [
-      Row(
-        children: [
-          Container(
-            clipBehavior: Clip.antiAlias,
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            child: Image(
-              image: AssetImage("assets/images/notification.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(width: 25),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Edward white",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+class Notification extends StatelessWidget {
+  const Notification({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              clipBehavior: Clip.antiAlias,
+              width: 50,
+              height: 50,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: const Image(
+                image: AssetImage("assets/images/notification.jpg"),
+                fit: BoxFit.cover,
               ),
-              Text("You complete Your workout...")
-            ],
-          ),
-          Spacer(),
-          Text(
-            "30mins ago",
-            style: TextStyle(fontSize: 12),
-          )
-        ],
-      ),
-      SizedBox(
-        height: 24,
-      )
-    ],
-  );
+            ),
+            const SizedBox(width: 25),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Edward white",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                ),
+                Text("You complete Your workout...")
+              ],
+            ),
+            const Spacer(),
+            const Text(
+              "30mins ago",
+              style: TextStyle(fontSize: 12),
+            )
+          ],
+        ),
+        const SizedBox(
+          height: 24,
+        )
+      ],
+    );
+  }
 }

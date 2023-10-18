@@ -1,6 +1,6 @@
 import 'package:fitness/screen/home/home_screen.dart';
 import 'package:fitness/screen/report/report_screen.dart';
-import 'package:fitness/screen/setting/settings.dart';
+import 'package:fitness/screen/setting/settings_screen.dart';
 import 'package:fitness/screen/training/training_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -43,17 +43,17 @@ class _TrainingScreenState extends State<TrainingScreen> {
           )
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: const [
-            DrawerHeader(child: Text("this is header")),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
-            )
-          ],
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     children: const [
+      //       DrawerHeader(child: Text("this is header")),
+      //       ListTile(
+      //         leading: Icon(Icons.home),
+      //         title: Text("Home"),
+      //       )
+      //     ],
+      //   ),
+      // ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
         child: SizedBox(

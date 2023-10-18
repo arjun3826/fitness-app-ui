@@ -22,7 +22,7 @@ class ReportCardWigets extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(8)),
       child: Padding(
-        padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
         child: Column(
           children: [
             Row(
@@ -32,35 +32,35 @@ class ReportCardWigets extends StatelessWidget {
                   size: 17,
                   color: color,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 12,
                       fontFamily: "Poppins",
                       color: Color(0xff121826)),
                 )
               ],
             ),
-            SizedBox(height: 14),
+            const SizedBox(height: 14),
             Row(
               children: [
                 Text(
                   abc,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18, fontFamily: "Poppins", color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 8,
                 ),
                 Text(kcl,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 15,
                         fontFamily: "Poppins",
                         color: Colors.black))
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Container(
               width: double.infinity,
               height: 1,
@@ -70,14 +70,14 @@ class ReportCardWigets extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "This week",
                   style: TextStyle(
                       color: Colors.black, fontFamily: "Poppins", fontSize: 12),
                 ),
                 IconButton.filled(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios_rounded,
                       size: 14,
                       color: Colors.black,

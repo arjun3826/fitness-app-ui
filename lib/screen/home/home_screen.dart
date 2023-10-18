@@ -1,6 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:fitness/screen/notification_screen/notification.dart';
+import 'package:fitness/screen/training/training_screen.dart';
 import 'package:fitness/screen/training/traning_details.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xffF2F6F9),
       body: Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Notification_home()));
+                        builder: (context) => const NotificationHome()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -71,7 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const TrainingScreen()));
+                  },
                   child: const Text(
                     "See All",
                     style: TextStyle(
@@ -83,22 +85,28 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                scroll(const AssetImage("assets/images/Rectangle 120.png"),
-                    "Cardio"),
-                scroll(const AssetImage("assets/images/Rectangle 121.png"),
-                    "Meditation"),
-                scroll(const AssetImage("assets/images/Rectangle 122.png"),
-                    "Yoga"),
-                scroll(const AssetImage("assets/images/Rectangle 123.png"),
-                    "Strength"),
-                scroll(const AssetImage("assets/images/Rectangle 129.png"),
-                    "Deadlift"),
-                scroll(const AssetImage("assets/images/Rectangle 121.png"),
-                    "Meditation"),
-              ],
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const TrainingScreen()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  scroll(const AssetImage("assets/images/Rectangle 120.png"),
+                      "Cardio"),
+                  scroll(const AssetImage("assets/images/Rectangle 121.png"),
+                      "Meditation"),
+                  scroll(const AssetImage("assets/images/Rectangle 122.png"),
+                      "Yoga"),
+                  scroll(const AssetImage("assets/images/Rectangle 123.png"),
+                      "Strength"),
+                  scroll(const AssetImage("assets/images/Rectangle 129.png"),
+                      "Deadlift"),
+                  scroll(const AssetImage("assets/images/Rectangle 121.png"),
+                      "Meditation"),
+                ],
+              ),
             ),
             const SizedBox(
               height: 40,
@@ -111,7 +119,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const TrainingScreen()));
+                  },
                   child: const Text(
                     "See All",
                     style: TextStyle(
@@ -125,27 +136,33 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  scroll2(const AssetImage("assets/images/Rectangle 124.png"),
-                      "Total Body\nTraining"),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  scroll2(const AssetImage("assets/images/Rectangle 125.png"),
-                      "Strength With\nBand"),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  scroll2(const AssetImage("assets/images/Rectangle 126.png"),
-                      "Deadlifiting"),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  scroll2(const AssetImage("assets/images/Rectangle 127.png"),
-                      "Total Body\n Training"),
-                ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const TrainingScreen()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    scroll2(const AssetImage("assets/images/Rectangle 124.png"),
+                        "Total Body\nTraining"),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    scroll2(const AssetImage("assets/images/Rectangle 125.png"),
+                        "Strength With\nBand"),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    scroll2(const AssetImage("assets/images/Rectangle 126.png"),
+                        "Deadlifiting"),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    scroll2(const AssetImage("assets/images/Rectangle 127.png"),
+                        "Total Body\n Training"),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -166,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => TrainingDetailScreen()));
+                      builder: (context) => const TrainingDetailScreen()));
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -203,10 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-scroll(
-  ImageProvider image,
-  String text,
-) {
+scroll(ImageProvider image, String text) {
   return Column(
     children: [
       Container(

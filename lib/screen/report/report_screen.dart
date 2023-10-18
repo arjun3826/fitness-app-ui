@@ -250,7 +250,7 @@ class _ReportScreenState extends State<ReportScreen>
                               const SizedBox(
                                 height: 16,
                               ),
-                              pie_chart()
+                              PieChart2(),
                             ],
                           ),
                         ),
@@ -311,14 +311,14 @@ class _ReportScreenState extends State<ReportScreen>
                       ),
                     ),
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   TableCalendar(
                     firstDay: DateTime.utc(2010, 10, 16),
                     lastDay: DateTime.utc(2030, 3, 14),
                     focusedDay: DateTime.now(),
                   ),
-                  SizedBox(height: 18),
-                  Align(
+                  const SizedBox(height: 18),
+                  const Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Set Your Goal",
@@ -327,9 +327,9 @@ class _ReportScreenState extends State<ReportScreen>
                       ),
                     ),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   getGoalWidget("10 Push up"),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   getGoalWidget("100 Meter "),
                 ],
               ),
@@ -338,7 +338,7 @@ class _ReportScreenState extends State<ReportScreen>
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );
@@ -357,11 +357,11 @@ class _ReportScreenState extends State<ReportScreen>
           children: [
             Text(
               goal,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
               ),
             ),
-            Text(
+            const Text(
               "10 min",
               style: TextStyle(
                 fontSize: 16,
@@ -418,8 +418,8 @@ class BarChart extends StatelessWidget {
   }
 }
 
-class pie_chart extends StatelessWidget {
-  pie_chart({Key? key}) : super(key: key);
+class PieChart2 extends StatelessWidget {
+  PieChart2({Key? key}) : super(key: key);
 
   final dataMap = <String, double>{
     "Run": 60,

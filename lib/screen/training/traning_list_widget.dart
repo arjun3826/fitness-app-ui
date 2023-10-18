@@ -12,8 +12,8 @@ class TrainingListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => TrainingDetailScreen()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const TrainingDetailScreen()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -58,7 +58,7 @@ class TrainingListWidget extends StatelessWidget {
                     const SizedBox(
                       height: 6,
                     ),
-                    Row(
+                    const Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
@@ -138,7 +138,7 @@ class TrainingListWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
+                        const Row(
                           children: [
                             Icon(
                               Icons.star,
@@ -164,7 +164,8 @@ class TrainingListWidget extends StatelessWidget {
                         IconButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => TrainingDetailScreen()));
+                                builder: (context) =>
+                                    const TrainingDetailScreen()));
                           },
                           icon: const Icon(Icons.arrow_forward_ios_rounded,
                               size: 14),

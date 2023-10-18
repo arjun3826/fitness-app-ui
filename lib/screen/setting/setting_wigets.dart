@@ -21,21 +21,21 @@ class SettingWigets extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(5)),
             child: Padding(
-              padding: EdgeInsets.only(left: 10, top: 15, bottom: 15),
+              padding: const EdgeInsets.only(left: 10, top: 15, bottom: 15),
               child: Row(
                 children: [
                   Icon(icon),
-                  SizedBox(width: 38),
+                  const SizedBox(width: 38),
                   Text(
                     text,
-                    style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
+                    style: const TextStyle(fontSize: 16, fontFamily: "Poppins"),
                   )
                 ],
               ),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         )
       ],
@@ -58,31 +58,30 @@ class DarkMode extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(5)),
-            child: Padding(
+            child: const Padding(
               padding:
                   EdgeInsets.only(left: 10, top: 15, bottom: 15, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Icon(Icons.dark_mode),
-                        SizedBox(width: 38),
-                        Text(
-                          "Dark Mode",
-                          style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
-                        )
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.dark_mode),
+                      SizedBox(width: 38),
+                      Text(
+                        "Dark Mode",
+                        style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
+                      )
+                    ],
                   ),
+                  Spacer(),
                   Icon(Icons.toggle_off)
                 ],
               ),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         )
       ],

@@ -1,7 +1,6 @@
-import 'package:fitness/review/review_screen.dart';
+import 'package:fitness/screen/review/review_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:flick_video_player/flick_video_player.dart';
 
 class TrainingDetailScreen extends StatefulWidget {
   const TrainingDetailScreen({super.key});
@@ -52,13 +51,13 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
   Widget build(BuildContext context) {
     _controller.value.isPlaying ? Icons.pause : Icons.play_arrow;
     return Scaffold(
-      backgroundColor: Color(0xffF2F6F9),
+      backgroundColor: const Color(0xffF2F6F9),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         bottomOpacity: 0.0,
         elevation: 0.0,
-        title: Text(
+        title: const Text(
           "Training",
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),
@@ -96,7 +95,7 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                               child: VideoPlayer(_controller),
                             );
                           } else {
-                            return CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           }
                         },
                       ),
@@ -113,31 +112,31 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                         changePlayback();
                       },
                       icon: tongle
-                          ? Icon(
+                          ? const Icon(
                               Icons.play_arrow,
                               color: Color(0xff7047EB),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 11),
+              const SizedBox(height: 11),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Deep Amrap Burnet",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
                   ),
                   icon_done("125kcl", "120min")
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ReviewScreen()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ReviewScreen()));
                 },
                 child: Container(
                   width: double.infinity,
@@ -145,8 +144,8 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.white),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
+                  child: const Padding(
+                    padding: EdgeInsets.only(
                         left: 11, top: 11, right: 11, bottom: 11),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,31 +164,31 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 35),
-              Align(
+              const SizedBox(height: 35),
+              const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Recommeded",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
                   )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               recommended("Deep Butt Sculp",
-                  AssetImage("assets/images/Rectangle 129.png")),
-              SizedBox(height: 14),
+                  const AssetImage("assets/images/Rectangle 129.png")),
+              const SizedBox(height: 14),
               recommended("Lower Body Amrap",
-                  AssetImage("assets/images/Rectangle 126.png")),
-              SizedBox(height: 14),
+                  const AssetImage("assets/images/Rectangle 126.png")),
+              const SizedBox(height: 14),
               recommended(
                 "Flat Abs Barrer",
-                AssetImage("assets/images/Rectangle 121.png"),
+                const AssetImage("assets/images/Rectangle 121.png"),
               ),
-              SizedBox(height: 14),
+              const SizedBox(height: 14),
               recommended("Flat Abs Barrer",
-                  AssetImage("assets/images/Rectangle 121.png")),
-              SizedBox(height: 14),
+                  const AssetImage("assets/images/Rectangle 121.png")),
+              const SizedBox(height: 14),
               recommended("Deep Butt Sculp",
-                  AssetImage("assets/images/Rectangle 129.png")),
-              SizedBox(height: 14),
+                  const AssetImage("assets/images/Rectangle 129.png")),
+              const SizedBox(height: 14),
             ],
           ),
         ),
@@ -198,6 +197,7 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
   }
 }
 
+// ignore: non_constant_identifier_names
 icon_done(String text, String type) {
   return Row(
     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -219,7 +219,7 @@ icon_done(String text, String type) {
           )
         ],
       ),
-      SizedBox(width: 10),
+      const SizedBox(width: 10),
       Row(
         children: [
           const Icon(
@@ -227,7 +227,7 @@ icon_done(String text, String type) {
             color: Color(0xff1FA755),
             size: 17,
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           Text(
             type,
             style: const TextStyle(
@@ -246,7 +246,7 @@ recommended(String text, ImageProvider image) {
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(5)),
     child: Padding(
-      padding: EdgeInsets.only(left: 8, top: 8, right: 11, bottom: 8),
+      padding: const EdgeInsets.only(left: 8, top: 8, right: 11, bottom: 8),
       child: Row(
         children: [
           Container(
@@ -259,18 +259,18 @@ recommended(String text, ImageProvider image) {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 26),
+          const SizedBox(width: 26),
           Column(
             children: [
               Text(text),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Row(
                 children: [icon_done("125kcl", "120min")],
               )
             ],
           ),
-          Spacer(),
-          Text("start"),
+          const Spacer(),
+          const Text("start"),
         ],
       ),
     ),
