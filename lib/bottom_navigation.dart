@@ -5,7 +5,8 @@ import 'package:fitness/screen/training/training_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+  final int currentIndex;
+  const BottomNav({super.key, this.currentIndex = 0});
 
   @override
   State<BottomNav> createState() => _BottomNavState();
@@ -21,6 +22,13 @@ class _BottomNavState extends State<BottomNav> {
     const SettingScreen(),
   ];
   PageController pageController = PageController();
+
+  @override
+  void initState() {
+    myIndex = widget.currentIndex;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

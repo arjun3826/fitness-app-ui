@@ -42,14 +42,46 @@ class _ReportScreenState extends State<ReportScreen>
           elevation: 0.0,
           title: const Text(
             "Report",
-            style: TextStyle(color: Colors.black, fontSize: 16),
+            style: TextStyle(
+                color: Colors.black, fontSize: 16, fontWeight: FontWeight.w800),
           ),
           centerTitle: true,
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert),
-            )
+            Container(
+              width: 45,
+              height: 45,
+              decoration: const BoxDecoration(
+                  color: Colors.white, shape: BoxShape.circle),
+              child: PopupMenuButton(
+                position: PopupMenuPosition.under,
+                icon: const Icon(Icons.more_vert),
+                onSelected: (newValue) {
+                  // add this property
+                },
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 0,
+                    child: Row(
+                      children: [
+                        Image.asset("assets/icons/feedback.png"),
+                        const SizedBox(width: 30),
+                        const Text("Feedback")
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 1,
+                    child: Row(
+                      children: [
+                        Image.asset("assets/icons/help.png"),
+                        const SizedBox(width: 30),
+                        const Text("Help")
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
           bottom: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 58),
@@ -79,9 +111,9 @@ class _ReportScreenState extends State<ReportScreen>
                       child: Text(
                         "Daily",
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 14,
-                        ),
+                            color: Theme.of(context).colorScheme.secondary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800),
                       ),
                     ),
                   ),
@@ -94,9 +126,9 @@ class _ReportScreenState extends State<ReportScreen>
                       child: Text(
                         "Calendar",
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 14,
-                        ),
+                            color: Theme.of(context).colorScheme.secondary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800),
                       ),
                     ),
                   ),
@@ -306,9 +338,9 @@ class _ReportScreenState extends State<ReportScreen>
                     child: Text(
                       "Schedule",
                       style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xff7047EB),
-                      ),
+                          fontSize: 18,
+                          color: Color(0xff7047EB),
+                          fontWeight: FontWeight.w800),
                     ),
                   ),
                   const SizedBox(height: 18),
@@ -322,9 +354,8 @@ class _ReportScreenState extends State<ReportScreen>
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Set Your Goal",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
                     ),
                   ),
                   const SizedBox(height: 24),

@@ -14,6 +14,7 @@ class SplashScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: double.infinity,
             fit: BoxFit.cover,
+            filterQuality: FilterQuality.high,
             image: const AssetImage(
               "assets/images/splash.jpg",
             ),
@@ -59,10 +60,9 @@ class SplashScreen extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20, top: 6, bottom: 6),
                           child: Row(
                             children: [
-                              Icon(
-                                Icons.facebook,
-                                size: 45,
-                                color: Color(0xff337FFF),
+                              Image(
+                                width: 45,
+                                image: AssetImage("assets/icons/Facebook.png"),
                               ),
                               SizedBox(width: 20),
                               Text(
@@ -90,8 +90,8 @@ class SplashScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Image(
-                                  image:
-                                      AssetImage("assets/images/google.png")),
+                                  width: 45,
+                                  image: AssetImage("assets/icons/google.png")),
                               SizedBox(width: 20),
                               Text(
                                 "CONNECT WITH GOOGLE",

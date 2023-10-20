@@ -63,10 +63,35 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
+            position: PopupMenuPosition.under,
             icon: const Icon(Icons.more_vert),
-          )
+            onSelected: (newValue) {
+              // add this property
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 0,
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/feedback.png"),
+                    const SizedBox(width: 30),
+                    const Text("Feedback")
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 1,
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/help.png"),
+                    const SizedBox(width: 30),
+                    const Text("Help")
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: Padding(
@@ -173,21 +198,21 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                   )),
               const SizedBox(height: 20),
               recommended("Deep Butt Sculp",
-                  const AssetImage("assets/images/Rectangle 129.png")),
+                  const AssetImage("assets/images/girl_workout.png")),
               const SizedBox(height: 14),
               recommended("Lower Body Amrap",
-                  const AssetImage("assets/images/Rectangle 126.png")),
+                  const AssetImage("assets/images/back.png")),
               const SizedBox(height: 14),
               recommended(
                 "Flat Abs Barrer",
-                const AssetImage("assets/images/Rectangle 121.png"),
+                const AssetImage("assets/images/abs.png"),
               ),
               const SizedBox(height: 14),
               recommended("Flat Abs Barrer",
-                  const AssetImage("assets/images/Rectangle 121.png")),
+                  const AssetImage("assets/images/strength.png")),
               const SizedBox(height: 14),
               recommended("Deep Butt Sculp",
-                  const AssetImage("assets/images/Rectangle 129.png")),
+                  const AssetImage("assets/images/Yoga.png")),
               const SizedBox(height: 14),
             ],
           ),

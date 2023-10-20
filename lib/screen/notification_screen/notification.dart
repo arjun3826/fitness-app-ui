@@ -6,6 +6,7 @@ class NotificationHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF2F6F9),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
@@ -88,7 +89,7 @@ class Notification extends StatelessWidget {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(10)),
               child: const Image(
-                image: AssetImage("assets/images/notification.jpg"),
+                image: AssetImage("assets/images/notification2.jpg"),
                 fit: BoxFit.cover,
               ),
             ),

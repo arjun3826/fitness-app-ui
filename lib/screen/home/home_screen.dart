@@ -1,7 +1,10 @@
+import 'package:fitness/repository/home.repo.dart';
 import 'package:fitness/screen/notification_screen/notification.dart';
 import 'package:fitness/screen/training/training_screen.dart';
 import 'package:fitness/screen/training/traning_details.dart';
 import 'package:flutter/material.dart';
+
+import '../../models/home_training_model.dart';
 
 class HomeScreen extends StatefulWidget {
   // var scroll;
@@ -13,6 +16,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int myIndex = 0;
+  bool isLoading = true;
+  List<HomeTrainingType> trainingType = [];
+
+  @override
+  void initState() {
+    fetchHomeTrainingType();
+    super.initState();
+  }
+
+  fetchHomeTrainingType() {
+    HomeRepository().getTrainingType().then((data) {
+      setState(() {
+        trainingType = data;
+        isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,29 +106,45 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 15,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const TrainingScreen()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  scroll(const AssetImage("assets/images/Rectangle 120.png"),
-                      "Cardio"),
-                  scroll(const AssetImage("assets/images/Rectangle 121.png"),
-                      "Meditation"),
-                  scroll(const AssetImage("assets/images/Rectangle 122.png"),
-                      "Yoga"),
-                  scroll(const AssetImage("assets/images/Rectangle 123.png"),
-                      "Strength"),
-                  scroll(const AssetImage("assets/images/Rectangle 129.png"),
-                      "Deadlift"),
-                  scroll(const AssetImage("assets/images/Rectangle 121.png"),
-                      "Meditation"),
-                ],
-              ),
-            ),
+            isLoading
+                ? const CircularProgressIndicator()
+                : SizedBox(
+                    height: 110,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: trainingType.length,
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const TrainingScreen()));
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: index == 0 ? 0.0 : 8.0, right: 8.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                clipBehavior: Clip.antiAlias,
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Image(
+                                  image: NetworkImage(
+                                      trainingType[index].imageUrl.toString()),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(trainingType[index].title.toString())
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
             const SizedBox(
               height: 40,
             ),
@@ -144,22 +181,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    scroll2(const AssetImage("assets/images/Rectangle 124.png"),
+                    scroll2(const AssetImage("assets/images/body_training.png"),
                         "Total Body\nTraining"),
                     const SizedBox(
                       width: 20,
                     ),
-                    scroll2(const AssetImage("assets/images/Rectangle 125.png"),
+                    scroll2(
+                        const AssetImage("assets/images/weight_lifting.png"),
                         "Strength With\nBand"),
                     const SizedBox(
                       width: 20,
                     ),
-                    scroll2(const AssetImage("assets/images/Rectangle 126.png"),
+                    scroll2(const AssetImage("assets/images/back.png"),
                         "Deadlifiting"),
                     const SizedBox(
                       width: 20,
                     ),
-                    scroll2(const AssetImage("assets/images/Rectangle 127.png"),
+                    scroll2(const AssetImage("assets/images/deadlifting.png"),
                         "Total Body\n Training"),
                   ],
                 ),
@@ -188,26 +226,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    vertical(
-                        const AssetImage("assets/images/Rectangle 128.png"),
+                    vertical(const AssetImage("assets/images/girl_workout.png"),
                         "Deep Amrap Burner"),
                     const SizedBox(
                       height: 13,
                     ),
-                    vertical(
-                        const AssetImage("assets/images/Rectangle 129.png"),
+                    vertical(const AssetImage("assets/images/abs.png"),
                         "Deep Butt Sculp"),
                     const SizedBox(
                       height: 13,
                     ),
                     vertical(
-                        const AssetImage("assets/images/Rectangle 125.png"),
+                        const AssetImage("assets/images/weight_lifting.png"),
                         "Strength With\nBand"),
                     const SizedBox(
                       height: 13,
                     ),
-                    vertical(
-                        const AssetImage("assets/images/Rectangle 126.png"),
+                    vertical(const AssetImage("assets/images/back.png"),
                         "Deadlifting"),
                   ],
                 ),
@@ -218,24 +253,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-scroll(ImageProvider image, String text) {
-  return Column(
-    children: [
-      Container(
-        clipBehavior: Clip.antiAlias,
-        width: 70,
-        height: 70,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Image(fit: BoxFit.cover, image: image),
-      ),
-      const SizedBox(
-        height: 10,
-      ),
-      Text(text)
-    ],
-  );
 }
 
 scroll2(

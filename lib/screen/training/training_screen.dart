@@ -14,11 +14,11 @@ class TrainingScreen extends StatefulWidget {
 class _TrainingScreenState extends State<TrainingScreen> {
   int myIndex = 0;
   List<String> traningImages = [
-    "assets/images/Rectangle 128.png",
-    "assets/images/Rectangle 129.png",
-    "assets/images/Rectangle 126.png",
-    "assets/images/Rectangle 121.png",
-    "assets/images/Rectangle 128.png"
+    "assets/images/girl_workout.png",
+    "assets/images/abs.png",
+    "assets/images/back.png",
+    "assets/images/deadlifting.png",
+    "assets/images/Meditation.png"
   ];
 
   @override
@@ -33,59 +33,47 @@ class _TrainingScreenState extends State<TrainingScreen> {
         title: const Text(
           "Training",
           style: TextStyle(
-              color: Colors.black, fontFamily: "Poppins", fontSize: 16),
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w800),
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
+            position: PopupMenuPosition.under,
             icon: const Icon(Icons.more_vert),
-          )
+            onSelected: (newValue) {
+              // add this property
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 0,
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/feedback.png"),
+                    const SizedBox(width: 30),
+                    const Text("Feedback")
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 1,
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/help.png"),
+                    const SizedBox(width: 30),
+                    const Text("Help")
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
-      // drawer: Drawer(
-      //   child: ListView(
-      //     children: const [
-      //       DrawerHeader(child: Text("this is header")),
-      //       ListTile(
-      //         leading: Icon(Icons.home),
-      //         title: Text("Home"),
-      //       )
-      //     ],
-      //   ),
-      // ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     IconButton(
-              //       onPressed: () {},
-              //       icon: const Icon(Icons.arrow_back),
-              //     ),
-              //     const Text(
-              //       "Training ",
-              //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-              //     ),
-              //     Container(
-              //       decoration: BoxDecoration(
-              //         borderRadius: BorderRadius.circular(40),
-              //         color: Colors.white,
-              //       ),
-              //       child: Padding(
-              //         padding: const EdgeInsets.all(10),
-              //         child: IconButton(
-              //           onPressed: () {},
-              //           icon: const Icon(Icons.more_vert),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               const SizedBox(
                 height: 24,
               ),

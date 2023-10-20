@@ -37,7 +37,7 @@ class ReportCardWigets extends StatelessWidget {
                   text,
                   style: const TextStyle(
                       fontSize: 12,
-                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w700,
                       color: Color(0xff121826)),
                 )
               ],
@@ -48,7 +48,9 @@ class ReportCardWigets extends StatelessWidget {
                 Text(
                   abc,
                   style: const TextStyle(
-                      fontSize: 18, fontFamily: "Poppins", color: Colors.black),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black),
                 ),
                 const SizedBox(
                   width: 8,
@@ -56,7 +58,7 @@ class ReportCardWigets extends StatelessWidget {
                 Text(kcl,
                     style: const TextStyle(
                         fontSize: 15,
-                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w700,
                         color: Colors.black))
               ],
             ),
@@ -73,7 +75,9 @@ class ReportCardWigets extends StatelessWidget {
                 const Text(
                   "This week",
                   style: TextStyle(
-                      color: Colors.black, fontFamily: "Poppins", fontSize: 12),
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700),
                 ),
                 IconButton.filled(
                     onPressed: () {},

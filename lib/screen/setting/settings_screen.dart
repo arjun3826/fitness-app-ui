@@ -1,5 +1,8 @@
+import 'package:fitness/screen/language/language_screen.dart';
+import 'package:fitness/screen/notification_screen/notification.dart';
 import 'package:flutter/material.dart';
 
+import '../../bottom_navigation.dart';
 import 'setting_wigets.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -21,7 +24,7 @@ class _SettingScreenState extends State<SettingScreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: const Image(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   image: AssetImage("assets/images/555.png"),
                 ),
               ),
@@ -46,9 +49,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             Text(
                               "Mr.Arjun",
                               style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w800),
+                                  fontSize: 16, fontWeight: FontWeight.w800),
                             ),
                             SizedBox(width: 10),
                             Icon(
@@ -81,15 +82,36 @@ class _SettingScreenState extends State<SettingScreen> {
             ],
           ),
           const SizedBox(height: 25),
-          const SettingWigets(icon: Icons.home, text: "Home"),
           const SettingWigets(
-              icon: Icons.watch_later_rounded, text: "Training"),
-          const SettingWigets(icon: Icons.bar_chart, text: "Report"),
-          const DarkMode(),
-          const SettingWigets(icon: Icons.language, text: "Language"),
-          const SettingWigets(icon: Icons.star, text: "Rate App"),
-          const SettingWigets(icon: Icons.share, text: "Share App"),
-          const SettingWigets(icon: Icons.error, text: "About Us"),
+            icon: Icons.notifications,
+            text: "Notification",
+          ),
+          SettingWigets(
+              icon: Icons.watch_later_rounded,
+              text: "Training",
+              onClick: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (context) => const BottomNav(currentIndex: 1)),
+                    (Route<dynamic> route) => false);
+              }),
+          SettingWigets(icon: Icons.bar_chart, text: "Report", onClick: () {}),
+          SettingWigets(
+              icon: Icons.dark_mode,
+              text: "Dark Mode",
+              option: Icons.toggle_off,
+              onClick: () {}),
+          SettingWigets(
+              icon: Icons.language,
+              text: "Language",
+              onClick: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => LanguageScreen()),
+                );
+              }),
+          SettingWigets(icon: Icons.star, text: "Rate App", onClick: () {}),
+          SettingWigets(icon: Icons.share, text: "Share App", onClick: () {}),
+          SettingWigets(icon: Icons.error, text: "About Us", onClick: () {}),
         ],
       ),
     );

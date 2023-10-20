@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Cardio",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707786/Fitness%20and%20Wellness%20UI%20Kit/cardio.png"
+        },
+        {
+            "id": 2,
+            "title": "Meditation",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/Meditation.png"
+        },
+        {
+            "id": 3,
+            "title": "Yoga",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/Yoga.png"
+        },
+        {
+            "id": 4,
+            "title": "Strength",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/strength.png"
+        },
+        {
+            "id": 5,
+            "title": "Deadlift",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707786/Fitness%20and%20Wellness%20UI%20Kit/Exercise.png"
+        },
+        {
+            "id": 1,
+            "title": "Cardio",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707786/Fitness%20and%20Wellness%20UI%20Kit/cardio.png"
+        },
+        {
+            "id": 2,
+            "title": "Meditation",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/Meditation.png"
+        },
+        {
+            "id": 3,
+            "title": "Yoga",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/Yoga.png"
+        },
+        {
+            "id": 4,
+            "title": "Strength",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707785/Fitness%20and%20Wellness%20UI%20Kit/strength.png"
+        },
+        {
+            "id": 5,
+            "title": "Deadlift",
+            "image_url": "https://res.cloudinary.com/ladla8602/image/upload/v1697707786/Fitness%20and%20Wellness%20UI%20Kit/Exercise.png"
+        }
+    ]
+}

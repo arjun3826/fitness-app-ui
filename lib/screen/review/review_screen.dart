@@ -19,10 +19,39 @@ class ReviewScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
+            position: PopupMenuPosition.under,
             icon: const Icon(Icons.more_vert),
-          )
+            onSelected: (newValue) {
+              // add this property
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 0,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/icons/feedback.png",
+                    ),
+                    const SizedBox(width: 30),
+                    const Text(
+                      "Feedback",
+                    )
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 1,
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/help.png"),
+                    const SizedBox(width: 30),
+                    const Text("Help")
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: Padding(
@@ -42,24 +71,29 @@ class ReviewScreen extends StatelessWidget {
                 Column(
                   children: [
                     Ratings(
-                      text: "5",
-                      width: 110,
+                      rating: 5,
+                      count: 10,
+                      total: 140,
                     ),
                     Ratings(
-                      text: "4",
-                      width: 150,
+                      rating: 4,
+                      count: 50,
+                      total: 140,
                     ),
                     Ratings(
-                      text: "3",
-                      width: 90,
+                      rating: 3,
+                      count: 20,
+                      total: 140,
                     ),
                     Ratings(
-                      text: "2",
-                      width: 50,
+                      rating: 2,
+                      count: 30,
+                      total: 140,
                     ),
                     Ratings(
-                      text: "1",
-                      width: 10,
+                      rating: 1,
+                      count: 20,
+                      total: 140,
                     ),
                   ],
                 )
@@ -103,25 +137,31 @@ class ReviewScreen extends StatelessWidget {
 }
 
 class Ratings extends StatelessWidget {
-  final String text;
-  final double width;
-  const Ratings({super.key, required this.text, required this.width});
+  final int rating;
+  final int count;
+  final int total;
+  const Ratings(
+      {super.key,
+      required this.rating,
+      required this.count,
+      required this.total});
 
   @override
   Widget build(BuildContext context) {
+    double barWidth = MediaQuery.of(context).size.width * 0.4;
     return Column(
       children: [
         Row(
           children: [
             Text(
-              text,
+              rating.toString(),
               style: const TextStyle(fontSize: 10),
             ),
             const SizedBox(width: 5),
             Stack(
               children: [
                 Container(
-                  width: 218,
+                  width: barWidth,
                   height: 8,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
@@ -129,7 +169,7 @@ class Ratings extends StatelessWidget {
                 ),
                 Container(
                   height: 8,
-                  width: width,
+                  width: (count / total) * barWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
                     color: const Color(0xff7047EB),
