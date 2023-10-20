@@ -178,27 +178,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const TrainingScreen()));
                 },
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    scroll2(const AssetImage("assets/images/body_training.png"),
-                        "Total Body\nTraining"),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    scroll2(
-                        const AssetImage("assets/images/weight_lifting.png"),
-                        "Strength With\nBand"),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    scroll2(const AssetImage("assets/images/back.png"),
-                        "Deadlifiting"),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    scroll2(const AssetImage("assets/images/deadlifting.png"),
-                        "Total Body\n Training"),
+                    TrendingWokouts(
+                        image: AssetImage("assets/images/body_training.png"),
+                        text: "Total Body\nTraining"),
+                    SizedBox(width: 20),
+                    TrendingWokouts(
+                        image: AssetImage("assets/images/weight_lifting.png"),
+                        text: "Strength With\nBand"),
+                    SizedBox(width: 20),
+                    TrendingWokouts(
+                        image: AssetImage("assets/images/back.png"),
+                        text: "Deadlifiting"),
+                    SizedBox(width: 20),
+                    TrendingWokouts(
+                        image: AssetImage("assets/images/deadlifting.png"),
+                        text: "Total Body\n Training"),
+                    SizedBox(width: 20),
+                    TrendingWokouts(
+                        image: AssetImage("assets/images/body_training.png"),
+                        text: "Total Body\nTraining"),
                   ],
                 ),
               ),
@@ -216,35 +217,35 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 35,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TrainingDetailScreen()));
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    vertical(const AssetImage("assets/images/girl_workout.png"),
-                        "Deep Amrap Burner"),
-                    const SizedBox(
-                      height: 13,
-                    ),
-                    vertical(const AssetImage("assets/images/abs.png"),
-                        "Deep Butt Sculp"),
-                    const SizedBox(
-                      height: 13,
-                    ),
-                    vertical(
-                        const AssetImage("assets/images/weight_lifting.png"),
-                        "Strength With\nBand"),
-                    const SizedBox(
-                      height: 13,
-                    ),
-                    vertical(const AssetImage("assets/images/back.png"),
-                        "Deadlifting"),
-                  ],
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const TrainingDetailScreen()));
+                  },
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AdditionalTraining(
+                          image: AssetImage("assets/images/girl_workout.png"),
+                          text: "Deep Amrap Burner"),
+                      SizedBox(height: 13),
+                      AdditionalTraining(
+                          image: AssetImage("assets/images/abs.png"),
+                          text: "Deep Butt Sculp"),
+                      SizedBox(height: 13),
+                      AdditionalTraining(
+                          image: AssetImage("assets/images/weight_lifting.png"),
+                          text: "Strength With\nBand"),
+                      SizedBox(height: 13),
+                      AdditionalTraining(
+                          image: AssetImage("assets/images/back.png"),
+                          text: "Deadlifting"),
+                      SizedBox(height: 13),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -255,164 +256,176 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-scroll2(
-  ImageProvider image,
-  String text,
-) {
-  return Stack(
-    children: [
-      Container(
-          clipBehavior: Clip.antiAlias,
-          width: 130,
-          height: 160,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.white,
+class TrendingWokouts extends StatelessWidget {
+  final ImageProvider image;
+  final String text;
+  const TrendingWokouts({super.key, required this.image, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+            clipBehavior: Clip.antiAlias,
+            width: 130,
+            height: 160,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white,
+            ),
+            child: Image(
+              fit: BoxFit.cover,
+              image: image,
+              colorBlendMode: BlendMode.overlay,
+            )),
+        Positioned(
+          bottom: 10,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      letterSpacing: 0.9),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.local_fire_department,
+                          color: Colors.white,
+                          size: 18,
+                        ),
+                        Text(
+                          "120min",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 10),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.watch_later_rounded,
+                          color: Colors.white,
+                          size: 18,
+                        ),
+                        Text(
+                          "125kcl",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 10),
+                        )
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-          child: Image(
-            fit: BoxFit.cover,
-            image: image,
-            colorBlendMode: BlendMode.overlay,
-          )),
-      Positioned(
-        bottom: 10,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                text,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    letterSpacing: 0.9),
-              ),
-              const SizedBox(
-                height: 7,
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.local_fire_department,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      Text(
-                        "120min",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.watch_later_rounded,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      Text(
-                        "125kcl",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10),
-                      )
-                    ],
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      )
-    ],
-  );
+        )
+      ],
+    );
+  }
 }
 
-vertical(ImageProvider image, String text) {
-  return Row(
-    children: [
-      Container(
-        clipBehavior: Clip.antiAlias,
-        width: 95,
-        height: 80,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-        child: Image(
-          image: image,
-          fit: BoxFit.cover,
+class AdditionalTraining extends StatelessWidget {
+  final ImageProvider image;
+  final String text;
+  const AdditionalTraining(
+      {super.key, required this.image, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          clipBehavior: Clip.antiAlias,
+          width: 95,
+          height: 80,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+          child: Image(
+            image: image,
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      const SizedBox(
-        width: 27,
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            text,
-            style: const TextStyle(
-                fontWeight: FontWeight.w800, color: Colors.black),
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.local_fire_department,
-                    color: Color(0xff1FA755),
-                    size: 18,
-                  ),
-                  Text(
-                    "120min",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 10),
-                  )
-                ],
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.watch_later_rounded,
-                    color: Color(0xff1FA755),
-                    size: 18,
-                  ),
-                  Text(
-                    "125kcl",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 10),
-                  )
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          const Text("Beginner - Full body")
-        ],
-      )
-    ],
-  );
+        const SizedBox(
+          width: 27,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w800, color: Colors.black),
+            ),
+            const SizedBox(
+              height: 6,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.local_fire_department,
+                      color: Color(0xff1FA755),
+                      size: 18,
+                    ),
+                    Text(
+                      "120min",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.watch_later_rounded,
+                      color: Color(0xff1FA755),
+                      size: 18,
+                    ),
+                    Text(
+                      "125kcl",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 6,
+            ),
+            const Text("Beginner - Full body")
+          ],
+        )
+      ],
+    );
+  }
 }

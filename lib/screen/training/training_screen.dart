@@ -77,18 +77,23 @@ class _TrainingScreenState extends State<TrainingScreen> {
         padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: List.generate(
-                traningImages.length,
-                (index) => Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        TrainingListWidget(
-                            image: AssetImage(traningImages[index]),
-                            onPressed: () {}),
-                        const SizedBox(height: 15),
-                      ],
-                    )),
+          child: Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: List.generate(
+                    traningImages.length,
+                    (index) => Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            TrainingListWidget(
+                                image: AssetImage(traningImages[index]),
+                                onPressed: () {}),
+                            const SizedBox(height: 15),
+                          ],
+                        )),
+              ),
+            ),
           ),
         ),
       ),

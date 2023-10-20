@@ -111,10 +111,21 @@ class ReviewScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            const Reviews(),
-            const Reviews(),
-            const Reviews(),
-            const Reviews(),
+            const Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    Reviews(),
+                    Reviews(),
+                    Reviews(),
+                    Reviews(),
+                    Reviews(),
+                    Reviews(),
+                  ],
+                ),
+              ),
+            ),
             const SizedBox(height: 10),
             SizedBox(
               width: MediaQuery.of(context).size.width,

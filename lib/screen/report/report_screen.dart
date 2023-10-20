@@ -146,189 +146,197 @@ class _ReportScreenState extends State<ReportScreen>
             Padding(
               padding:
                   const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-              child: Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      ReportCardWigets(
-                        text: "Calories",
-                        color: Color(0xff1FA755),
-                        abc: "1024",
-                        kcl: "kcl",
-                        icon: Icons.local_fire_department,
-                      ),
-                      ReportCardWigets(
-                        text: "Minutes",
-                        color: Color(0xff7047EB),
-                        abc: "128",
-                        kcl: "min",
-                        icon: Icons.watch_later_rounded,
-                      ),
-                      ReportCardWigets(
-                        text: "Weight",
-                        color: Color(0xffE91C4C),
-                        abc: "75.2",
-                        kcl: "kg",
-                        icon: Icons.speed,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Container(
-                    // width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 44, right: 44, top: 16, bottom: 20),
-                      child: Column(
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ReportCardWigets(
+                            text: "Calories",
+                            color: Color(0xff1FA755),
+                            abc: "1024",
+                            kcl: "kcl",
+                            icon: Icons.local_fire_department,
+                          ),
+                          ReportCardWigets(
+                            text: "Minutes",
+                            color: Color(0xff7047EB),
+                            abc: "128",
+                            kcl: "min",
+                            icon: Icons.watch_later_rounded,
+                          ),
+                          ReportCardWigets(
+                            text: "Weight",
+                            color: Color(0xffE91C4C),
+                            abc: "75.2",
+                            kcl: "kg",
+                            icon: Icons.speed,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Container(
+                        // width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(18)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 44, right: 44, top: 16, bottom: 20),
+                          child: Column(
                             children: [
-                              const Text(
-                                "Workout",
-                                style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w800),
-                              ),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   const Text(
-                                    "Week",
+                                    "Workout",
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w800),
                                   ),
-                                  IconButton.filled(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.expand_more))
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        "Week",
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w800),
+                                      ),
+                                      IconButton.filled(
+                                          onPressed: () {},
+                                          icon: const Icon(Icons.expand_more))
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const SizedBox(height: 14),
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  BarChart(
+                                    height: 50,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Sun",
+                                  ),
+                                  BarChart(
+                                    height: 100,
+                                    color: Color(0xff7047EB),
+                                    text: "Mon",
+                                  ),
+                                  BarChart(
+                                    height: 50,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Tue",
+                                  ),
+                                  BarChart(
+                                    height: 70,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Wed",
+                                  ),
+                                  BarChart(
+                                    height: 85,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Thu",
+                                  ),
+                                  BarChart(
+                                    height: 95,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Fri",
+                                  ),
+                                  BarChart(
+                                    height: 40,
+                                    color: Color.fromARGB(208, 137, 152, 172),
+                                    text: "Sat",
+                                  ),
                                 ],
                               )
                             ],
                           ),
-                          const SizedBox(height: 14),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              BarChart(
-                                height: 50,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Sun",
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.white),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 18, right: 0, bottom: 18, top: 18),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.directions_run,
+                                        color: Color(0xff7047EB),
+                                        size: 18,
+                                      ),
+                                      SizedBox(width: 12),
+                                      Text(
+                                        "Step",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  PieChart2(),
+                                ],
                               ),
-                              BarChart(
-                                height: 100,
-                                color: Color(0xff7047EB),
-                                text: "Mon",
+                            ),
+                          ),
+                          const Spacer(),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.white),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 18, right: 0, bottom: 18, top: 18),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.water_drop,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        size: 16,
+                                      ),
+                                      const SizedBox(width: 12),
+                                      const Text(
+                                        "Water",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  Pie121(),
+                                ],
                               ),
-                              BarChart(
-                                height: 50,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Tue",
-                              ),
-                              BarChart(
-                                height: 70,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Wed",
-                              ),
-                              BarChart(
-                                height: 85,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Thu",
-                              ),
-                              BarChart(
-                                height: 95,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Fri",
-                              ),
-                              BarChart(
-                                height: 40,
-                                color: Color.fromARGB(208, 137, 152, 172),
-                                text: "Sat",
-                              ),
-                            ],
-                          )
+                            ),
+                          ),
                         ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 18, right: 0, bottom: 18, top: 18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Row(
-                                children: [
-                                  Icon(
-                                    Icons.directions_run,
-                                    color: Color(0xff7047EB),
-                                    size: 18,
-                                  ),
-                                  SizedBox(width: 12),
-                                  Text(
-                                    "Step",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              PieChart2(),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 18, right: 0, bottom: 18, top: 18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.water_drop,
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 12),
-                                  const Text(
-                                    "Water",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              Pie121(),
-                            ],
-                          ),
-                        ),
-                      ),
+                      )
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
             ),
             Padding(

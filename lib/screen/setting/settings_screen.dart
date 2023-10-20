@@ -19,6 +19,7 @@ class _SettingScreenState extends State<SettingScreen> {
       body: Column(
         children: [
           Stack(
+            alignment: Alignment.center,
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -61,56 +62,63 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
               ),
-              Positioned(
-                left: 318,
-                top: 155,
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.white,
-                  ),
-                  child: const Icon(
-                    Icons.add_a_photo_rounded,
-                    color: Color(0xff7047EB),
-                  ),
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.white,
+                ),
+                child: const Icon(
+                  Icons.add_a_photo_rounded,
+                  color: Color(0xff7047EB),
                 ),
               )
             ],
           ),
           const SizedBox(height: 25),
-          const SettingWigets(
-            icon: Icons.notifications,
-            text: "Notification",
-          ),
-          SettingWigets(
-              icon: Icons.watch_later_rounded,
-              text: "Training",
-              onClick: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (context) => const BottomNav(currentIndex: 1)),
-                    (Route<dynamic> route) => false);
-              }),
-          SettingWigets(icon: Icons.bar_chart, text: "Report", onClick: () {}),
-          SettingWigets(
-              icon: Icons.dark_mode,
-              text: "Dark Mode",
-              option: Icons.toggle_off,
-              onClick: () {}),
-          SettingWigets(
-              icon: Icons.language,
-              text: "Language",
-              onClick: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => const LanguageScreen()),
-                );
-              }),
-          SettingWigets(icon: Icons.star, text: "Rate App", onClick: () {}),
-          SettingWigets(icon: Icons.share, text: "Share App", onClick: () {}),
-          SettingWigets(icon: Icons.error, text: "About Us", onClick: () {}),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SettingWigets(
+                      icon: Icons.notifications, text: "Notification"),
+                  SettingWigets(
+                      icon: Icons.watch_later_rounded,
+                      text: "Training",
+                      onClick: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const BottomNav(currentIndex: 1)),
+                            (Route<dynamic> route) => false);
+                      }),
+                  SettingWigets(
+                      icon: Icons.bar_chart, text: "Report", onClick: () {}),
+                  SettingWigets(
+                      icon: Icons.dark_mode,
+                      text: "Dark Mode",
+                      option: Icons.toggle_off,
+                      onClick: () {}),
+                  SettingWigets(
+                      icon: Icons.language,
+                      text: "Language",
+                      onClick: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const LanguageScreen()),
+                        );
+                      }),
+                  SettingWigets(
+                      icon: Icons.star, text: "Rate App", onClick: () {}),
+                  SettingWigets(
+                      icon: Icons.share, text: "Share App", onClick: () {}),
+                  SettingWigets(
+                      icon: Icons.error, text: "About Us", onClick: () {}),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

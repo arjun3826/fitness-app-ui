@@ -147,14 +147,14 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                 ],
               ),
               const SizedBox(height: 11),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Deep Amrap Burnet",
                     style: TextStyle(fontSize: 16),
                   ),
-                  icon_done("125kcl", "120min")
+                  TrainingScreenIcon(text: "125kcl", type: "120min")
                 ],
               ),
               const SizedBox(height: 24),
@@ -200,22 +200,25 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                     ),
                   )),
               const SizedBox(height: 20),
-              recommended("Deep Butt Sculp",
-                  const AssetImage("assets/images/girl_workout.png")),
+              const TrainingRecommended(
+                  image: AssetImage("assets/images/girl_workout.png"),
+                  text: "Deep Butt Sculp"),
               const SizedBox(height: 14),
-              recommended("Lower Body Amrap",
-                  const AssetImage("assets/images/back.png")),
+              const TrainingRecommended(
+                  image: AssetImage("assets/images/back.png"),
+                  text: "Lower Body Amrap"),
               const SizedBox(height: 14),
-              recommended(
-                "Flat Abs Barrer",
-                const AssetImage("assets/images/abs.png"),
-              ),
+              const TrainingRecommended(
+                  image: AssetImage("assets/images/abs.png"),
+                  text: "Lower Body Amrap"),
               const SizedBox(height: 14),
-              recommended("Flat Abs Barrer",
-                  const AssetImage("assets/images/strength.png")),
+              const TrainingRecommended(
+                  image: AssetImage("assets/images/strength.png"),
+                  text: "Flat Abs Barrer"),
               const SizedBox(height: 14),
-              recommended("Deep Butt Sculp",
-                  const AssetImage("assets/images/Yoga.png")),
+              const TrainingRecommended(
+                  image: AssetImage("assets/images/Yoga.png"),
+                  text: "Deep Butt Sculp"),
               const SizedBox(height: 14),
             ],
           ),
@@ -225,80 +228,102 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
   }
 }
 
-icon_done(String text, String type) {
-  return Row(
-    children: [
-      Row(
-        children: [
-          const Icon(
-            Icons.local_fire_department,
-            color: Color(0xff1FA755),
-            size: 17,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            text,
-            style: const TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10),
-          )
-        ],
-      ),
-      const SizedBox(width: 10),
-      Row(
-        children: [
-          const Icon(
-            Icons.watch_later_rounded,
-            color: Color(0xff1FA755),
-            size: 17,
-          ),
-          const SizedBox(width: 5),
-          Text(
-            type,
-            style: const TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10),
-          )
-        ],
-      ),
-    ],
-  );
+class TrainingScreenIcon extends StatelessWidget {
+  final String text;
+  final String type;
+
+  const TrainingScreenIcon({super.key, required this.text, required this.type});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Row(
+          children: [
+            const Icon(
+              Icons.local_fire_department,
+              color: Color(0xff1FA755),
+              size: 17,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10),
+            )
+          ],
+        ),
+        const SizedBox(width: 10),
+        Row(
+          children: [
+            const Icon(
+              Icons.watch_later_rounded,
+              color: Color(0xff1FA755),
+              size: 17,
+            ),
+            const SizedBox(width: 5),
+            Text(
+              type,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10),
+            )
+          ],
+        ),
+      ],
+    );
+  }
 }
 
-recommended(String text, ImageProvider image) {
-  return Container(
-    width: double.infinity,
-    height: 64,
-    decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(5)),
-    child: Padding(
-      padding: const EdgeInsets.only(left: 8, top: 8, right: 11, bottom: 8),
-      child: Row(
-        children: [
-          Container(
-            clipBehavior: Clip.antiAlias,
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-            child: Image(
-              image: image,
-              fit: BoxFit.cover,
+class TrainingRecommended extends StatelessWidget {
+  final String text;
+  final ImageProvider image;
+  const TrainingRecommended(
+      {super.key, required this.image, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 64,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(5)),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8, top: 8, right: 11, bottom: 8),
+        child: Row(
+          children: [
+            Container(
+              clipBehavior: Clip.antiAlias,
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+              child: Image(
+                image: image,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(width: 26),
-          Column(
-            children: [
-              Text(text),
-              const SizedBox(height: 5),
-              Row(
-                children: [icon_done("125kcl", "120min")],
-              )
-            ],
-          ),
-          const Spacer(),
-          const Text("start"),
-        ],
+            const SizedBox(width: 26),
+            Column(
+              children: [
+                Text(text),
+                const SizedBox(height: 5),
+                const Row(
+                  children: [
+                    TrainingScreenIcon(text: "125kcl", type: "120min")
+                  ],
+                )
+              ],
+            ),
+            const Spacer(),
+            const Text("start"),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
