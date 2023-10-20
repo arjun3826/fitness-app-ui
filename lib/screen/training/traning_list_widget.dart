@@ -52,8 +52,9 @@ class TrainingListWidget extends StatelessWidget {
                   children: [
                     const Text(
                       "Deep Amrap Burner",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                     const SizedBox(
                       height: 6,
@@ -115,7 +116,8 @@ class TrainingListWidget extends StatelessWidget {
                           onPressed: () {},
                           child: const Text("Beginner",
                               style: TextStyle(
-                                  fontSize: 11, fontWeight: FontWeight.w700)),
+                                fontSize: 11,
+                              )),
                         ),
                         const SizedBox(
                           width: 9,
@@ -131,7 +133,8 @@ class TrainingListWidget extends StatelessWidget {
                             child: const Text(
                               "Full body",
                               style: TextStyle(
-                                  fontSize: 11, fontWeight: FontWeight.w700),
+                                fontSize: 11,
+                              ),
                             ))
                       ],
                     ),

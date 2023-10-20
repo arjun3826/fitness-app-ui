@@ -152,7 +152,7 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                 children: [
                   const Text(
                     "Deep Amrap Burnet",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                    style: TextStyle(fontSize: 16),
                   ),
                   icon_done("125kcl", "120min")
                 ],
@@ -178,7 +178,8 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                         Text(
                           "Review",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w700),
+                            fontSize: 16,
+                          ),
                         ),
                         Icon(
                           Icons.arrow_forward_ios,
@@ -194,7 +195,9 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
                   alignment: Alignment.topLeft,
                   child: Text(
                     "Recommeded",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
                   )),
               const SizedBox(height: 20),
               recommended("Deep Butt Sculp",
@@ -222,10 +225,8 @@ class _TrainingDetailScreenState extends State<TrainingDetailScreen> {
   }
 }
 
-// ignore: non_constant_identifier_names
 icon_done(String text, String type) {
   return Row(
-    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Row(
         children: [

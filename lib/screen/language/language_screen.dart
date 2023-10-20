@@ -19,7 +19,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
         elevation: 0.0,
         title: const Text(
           "Language",
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w800),
         ),
         centerTitle: true,
       ),
@@ -100,7 +101,7 @@ class NotificationWigets extends StatelessWidget {
             Text(text, style: const TextStyle(fontSize: 15)),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Container(
           width: MediaQuery.of(context).size.width,
           height: 1,

@@ -43,7 +43,9 @@ class _ReportScreenState extends State<ReportScreen>
           title: const Text(
             "Report",
             style: TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.w800),
+              color: Colors.black,
+              fontSize: 16,
+            ),
           ),
           centerTitle: true,
           actions: [
@@ -100,7 +102,10 @@ class _ReportScreenState extends State<ReportScreen>
                     borderRadius: BorderRadius.circular(8)),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                padding: const EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                ),
                 tabs: [
                   Container(
                     height: 40,
@@ -112,8 +117,7 @@ class _ReportScreenState extends State<ReportScreen>
                         "Daily",
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.secondary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w800),
+                            fontSize: 14),
                       ),
                     ),
                   ),
@@ -127,8 +131,7 @@ class _ReportScreenState extends State<ReportScreen>
                         "Calendar",
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.secondary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w800),
+                            fontSize: 14),
                       ),
                     ),
                   ),
@@ -354,8 +357,7 @@ class _ReportScreenState extends State<ReportScreen>
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Set Your Goal",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                   const SizedBox(height: 24),

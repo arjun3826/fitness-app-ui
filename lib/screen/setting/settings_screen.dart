@@ -1,5 +1,4 @@
 import 'package:fitness/screen/language/language_screen.dart';
-import 'package:fitness/screen/notification_screen/notification.dart';
 import 'package:flutter/material.dart';
 
 import '../../bottom_navigation.dart';
@@ -48,8 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           children: [
                             Text(
                               "Mr.Arjun",
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w800),
+                              style: TextStyle(fontSize: 16),
                             ),
                             SizedBox(width: 10),
                             Icon(
@@ -106,7 +104,8 @@ class _SettingScreenState extends State<SettingScreen> {
               text: "Language",
               onClick: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LanguageScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const LanguageScreen()),
                 );
               }),
           SettingWigets(icon: Icons.star, text: "Rate App", onClick: () {}),

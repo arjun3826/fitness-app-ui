@@ -15,7 +15,10 @@ class ReviewScreen extends StatelessWidget {
         elevation: 0.0,
         title: const Text(
           "Review",
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
         ),
         centerTitle: true,
         actions: [

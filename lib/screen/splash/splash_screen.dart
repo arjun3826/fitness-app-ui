@@ -68,7 +68,7 @@ class SplashScreen extends StatelessWidget {
                               Text(
                                 "CONNECT WITH FACEBOOK",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                                    color: Colors.white, fontSize: 14),
                               )
                             ],
                           ),
@@ -96,7 +96,7 @@ class SplashScreen extends StatelessWidget {
                               Text(
                                 "CONNECT WITH GOOGLE",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                                    color: Colors.white, fontSize: 14),
                               )
                             ],
                           ),

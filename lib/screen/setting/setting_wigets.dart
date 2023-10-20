@@ -39,7 +39,7 @@ class SettingWigets extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    Icon(option)
+                    Icon(option, size: 25)
                   ],
                 ),
               ),

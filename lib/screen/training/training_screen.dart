@@ -32,65 +32,63 @@ class _TrainingScreenState extends State<TrainingScreen> {
         elevation: 0.0,
         title: const Text(
           "Training",
-          style: TextStyle(
-              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w800),
+          style: TextStyle(color: Colors.black, fontSize: 16),
         ),
         centerTitle: true,
         actions: [
-          PopupMenuButton(
-            position: PopupMenuPosition.under,
-            icon: const Icon(Icons.more_vert),
-            onSelected: (newValue) {
-              // add this property
-            },
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: 0,
-                child: Row(
-                  children: [
-                    Image.asset("assets/icons/feedback.png"),
-                    const SizedBox(width: 30),
-                    const Text("Feedback")
-                  ],
+          Container(
+            width: 45,
+            height: 45,
+            decoration: const BoxDecoration(
+                color: Colors.white, shape: BoxShape.circle),
+            child: PopupMenuButton(
+              position: PopupMenuPosition.under,
+              icon: const Icon(Icons.more_vert),
+              onSelected: (newValue) {
+                // add this property
+              },
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 0,
+                  child: Row(
+                    children: [
+                      Image.asset("assets/icons/feedback.png"),
+                      const SizedBox(width: 30),
+                      const Text("Feedback")
+                    ],
+                  ),
                 ),
-              ),
-              PopupMenuItem(
-                value: 1,
-                child: Row(
-                  children: [
-                    Image.asset("assets/icons/help.png"),
-                    const SizedBox(width: 30),
-                    const Text("Help")
-                  ],
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      Image.asset("assets/icons/help.png"),
+                      const SizedBox(width: 30),
+                      const Text("Help")
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
-            children: [
-              const SizedBox(
-                height: 24,
-              ),
-              Column(
-                children: List.generate(
-                    traningImages.length,
-                    (index) => Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            TrainingListWidget(
-                                image: AssetImage(traningImages[index]),
-                                onPressed: () {}),
-                            const SizedBox(height: 15),
-                          ],
-                        )),
-              )
-            ],
+            children: List.generate(
+                traningImages.length,
+                (index) => Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        TrainingListWidget(
+                            image: AssetImage(traningImages[index]),
+                            onPressed: () {}),
+                        const SizedBox(height: 15),
+                      ],
+                    )),
           ),
         ),
       ),
